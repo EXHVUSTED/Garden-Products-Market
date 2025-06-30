@@ -13,6 +13,11 @@ import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { ThemeContext } from "../../ThemeContext";
 
 function Header() {
+  useEffect(() => {
+  console.log('API URL:', apiUrl);
+  }, []);
+
+  const apiUrl = import.meta.env.VITE_API_URL
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   const productsState = useSelector((store) => store.products.data);
@@ -38,7 +43,7 @@ function Header() {
       setLoading(false);
     } else {
       // fetch("http://localhost:3333/products/all")
-      fetch(`${import.meta.env.VITE_API_URL}/products/all`)
+      fetch(`${apiUrl}/products/all`)
         .then((response) => {
           if (!response.ok) throw new Error("Error fetching products");
           return response.json();
