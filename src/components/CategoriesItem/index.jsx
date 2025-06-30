@@ -12,7 +12,7 @@ export default function CategoryItem({ id, image,title }) {
       <div className=
       {`${s.categoryItem} ${theme === 'dark' ? s['categoryItem_dark'] : ''}`}
       >
-        <img src={`http://localhost:3333${image}`} alt={title} />
+        <img src={`${import.meta.env.VITE_API_URL}${image}`} alt={title} />
         <p>{title}</p>
       </div>
     </Link>

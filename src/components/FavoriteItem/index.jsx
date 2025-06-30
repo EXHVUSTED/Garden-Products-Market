@@ -62,7 +62,7 @@ export default function FavoriteItem({
         <Link to={`/products/${id}`}>
           <div className={s.image_container}>
             <img
-              src={`http://localhost:3333${image}`}
+              src={`${import.meta.env.VITE_API_URL}${image}`}
               alt={title}
               className={s.sale_image}
             />

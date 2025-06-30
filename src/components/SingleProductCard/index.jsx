@@ -16,6 +16,7 @@ import {
 import CartItem from "../CartItem";
 import { ThemeContext } from "../../ThemeContext";
 
+
 const SingleProductCard = () => {
   const {theme} = useContext(ThemeContext);
   const [count, setCount] = useState(1); 
@@ -100,7 +101,7 @@ const SingleProductCard = () => {
       <div>
         <div className={s.img_container}>
           <img
-            src={`http://localhost:3333${image}`}
+            src={`${import.meta.env.VITE_API_URL}${image}`}
             className={s.product_image}
             onClick={handleImageClick}
             alt={title}
@@ -111,7 +112,7 @@ const SingleProductCard = () => {
           <div className={s.modal} onClick={closeModal}>
             <div className={s.modal_content}>
               <img
-                src={`http://localhost:3333${image}`}
+                src={`${import.meta.env.VITE_API_URL}${image}`}
                 className={s.full_image}
                 alt={title}
               />

@@ -37,7 +37,8 @@ function Header() {
       setProductOfTheDay(savedProduct);
       setLoading(false);
     } else {
-      fetch("http://localhost:3333/products/all")
+      // fetch("http://localhost:3333/products/all")
+      fetch(`${import.meta.env.VITE_API_URL}/products/all`)
         .then((response) => {
           if (!response.ok) throw new Error("Error fetching products");
           return response.json();
@@ -109,7 +110,8 @@ function Header() {
               <div className={s.modal_product}>
                 <div className={s.modal_product_content}>
                   <img
-                    src={`http://localhost:3333${productOfTheDay.image}`}
+                    // src={`http://localhost:3333${productOfTheDay.image}`}
+                    src={`${import.meta.env.VITE_API_URL}${productOfTheDay.image}`}
                     alt={productOfTheDay.title}
                   />
                   <div className={s.modal_product_txt}>

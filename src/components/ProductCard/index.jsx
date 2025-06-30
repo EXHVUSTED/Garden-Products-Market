@@ -76,7 +76,7 @@ const ProductsCard = ({ id, title, image, price, discont_price }) => {
       <Link to={`/products/${id}`}>
         <div className={s.image_container}>
           <img
-            src={`${process.env.REACT_APP_API_URL}${image}`}
+            src={`${import.meta.env.VITE_API_URL}${image}`}
             // src={`http://localhost:3333${image}`}
             alt={title}
             className={s.sale_image}

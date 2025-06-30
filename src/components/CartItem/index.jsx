@@ -24,7 +24,7 @@ export default function CartItem({
       className={`${s.cartitem} ${theme === "dark" ? s["cartitem_dark"] : ""}`}
     >
       <img
-        src={`http://localhost:3333${image}`}
+        src={`${import.meta.env.VITE_API_URL}${image}`}
         className={s.cartimgcontainer}
       />
       <div className={s.cartcontentcontainer}>

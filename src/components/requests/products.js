@@ -4,14 +4,14 @@ import { loadSingleProductAction } from "../../store/reducers/singleProductReduc
 
 
 export const getAllProducts = (dispatch) => {
-  fetch("http://localhost:3333/products/all")
+  fetch(`${import.meta.env.VITE_API_URL}/products/all`)
     .then((res) => res.json())
     .then((json) => dispatch(loadAllProductsAction(json)))
     .catch((error) => console.error("Error fetching all products:", error));
 };
 export const getSingleProduct = (id) => {  
   return dispatch => {
-    fetch(`http://localhost:3333/products/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/products/${id}`)
     .then(res => res.json())
     .then(json => dispatch(loadSingleProductAction(json)))
     .catch(error => console.error("Error fetching single product:", error));
@@ -19,7 +19,7 @@ export const getSingleProduct = (id) => {
 }
 export const getProductsByCategory = (id) => {
   return dispatch => {
-    fetch(`http://localhost:3333/categories/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/categories/${id}`)
     .then(res => res.json())
     .then(json => dispatch(loadProductsByCategoryAction(json)))
     .catch(error => console.error("Error fetching all products:", error));
