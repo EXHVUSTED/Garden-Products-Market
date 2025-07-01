@@ -13,6 +13,26 @@
   background-color: var(--white, #fffff1);  
 }
 
+@media (max-width: 768px){
+  .header {
+    // flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+  }
+  .navList a{
+    display: none;
+  }
+  .icons {
+    // margin-left: 30%;
+  }
+  .logo {
+    
+  }
+
+}
+
 .header button {
   border: none;
   outline: none;

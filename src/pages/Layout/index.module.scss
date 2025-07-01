@@ -21,3 +21,9 @@
         background: #424436!important;
     }
 }
+
+@media (max-width: 768px){
+    .theme{
+        max-width: 768px;
+    }
+}
