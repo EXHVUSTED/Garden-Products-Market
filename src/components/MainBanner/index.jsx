@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <section className={s.main}>
+    <div className={s.mainBanner}>
       <div className="container">
         <div className={s.block}>
           <h1 className={s.title}>Amazing Discounts on Garden Products!</h1>
@@ -15,7 +15,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

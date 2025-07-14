@@ -32,7 +32,7 @@
 .line {
   flex-grow: 1;
   height: 2px;
-  width: 1300px;
+  max-width: 1300px;
   background: #ddd;
   margin-left: 20px;
 }

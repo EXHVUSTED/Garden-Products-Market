@@ -4,10 +4,11 @@ import Banner from "../../components/MainBanner";
 import Categories from "../../components/Categories";
 import DiscountForm from "../../components/DiscountForm";
 import BannerSales from "../../components/BannerSales";
+import s from "./index.module.scss";
 
 const MainPage = () => {
   return (
-    <div>
+    <div className={s.MainPage}>
       <Banner />
       <Categories />
       <DiscountForm />

@@ -6,7 +6,7 @@ import Layout from "./pages/Layout";
 import AllProductsPage from "./pages/AllProductsPage";
 import AllSalesPage from "./pages/AllSalesPage";
 import CategoriesPage from "./pages/CategoriesPage";
-import "./index.css";
+import "./index.scss";
 import CartPage from "./pages/CartPage";
 import FavoritePage from "./pages/FavoritePage";
 import SingleProductPage from "./pages/SingleProductPage";

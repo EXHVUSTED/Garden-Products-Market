@@ -1,29 +1,59 @@
-.theme {
-    background: var(--white, #fffff1);
-}
-.theme-dark {
-    max-width: 1440px;
-    background-color: #383A2C!important;
-    background: #424436!important;
-    a {
-        color: white;
-    }
-    h2 {
-        color: white;
-    }
-    p {
-        color: white;
-    }
-    b {
-        color: #ffff;
-    }
-    body {
-        background: #424436!important;
-    }
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #000;
 }
 
-@media (max-width: 768px){
-    .theme{
-        max-width: 768px;
-    }
+.theme-dark {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.theme-light {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px 16px;
+
+  @media (max-width: 768px) {
+    padding: 16px 12px;
+  }
+
+  @media (max-width: 430px) {
+    padding: 12px 10px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 10px 8px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  // добавим адаптивность текста и внутренних отступов
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0 12px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0 10px;
+  }
 }
