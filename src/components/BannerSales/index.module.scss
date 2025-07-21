@@ -1,6 +1,7 @@
 .sales_container {
-  max-width: 1430px; /* Максимальная ширина для контейнера */
-  margin: 0 auto; /* Выравнивание по центру страницы */
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 30px;
 }
 
@@ -17,7 +18,7 @@
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
-  line-height: 110%; /* 70.4px */
+  line-height: 110%;
 }
 
 .line {
@@ -27,24 +28,8 @@
   margin: 0 20px;
 }
 
-.allSalesButton {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.allSalesButton:hover {
-  background-color: #e85c51;
-}
-
 .allProductsButton {
   padding: 8px 16px;
-  gap: 10px;
   width: 100px;
   height: 40px;
   text-decoration: none;
@@ -56,137 +41,54 @@
   font-weight: 500;
   border-radius: 5px;
   border: 0.3px solid var(--grey-divider, rgb(214, 212, 212));
-}
+  background-color: white;
+  transition: all 0.3s;
 
-.allProductsButton:hover a {
-  color: black;
-}
-
-.allProductsButton a {
-  color: gray!important;
-}
-
-.Sales {
-  display: flex; /* Flexbox или Grid для корректной работы gap */
-  flex-wrap: nowrap; /* Позволяет карточкам переноситься на новую строку */
-  gap: 32px; /* Применяется для отступов между карточками */
-}
-
-.ProductsCard {
-  position: relative;
-  display: flex;
-  width: 316px;
-  height: 440px;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 25px;
-  background: #FFF;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-.ProductsCard:hover {
-  transform: translateY(-5px); /* Легкое движение вверх при наведении */
-}
-
-.tegi {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: flex-start;
-  padding-left: 25px;
-  gap: 20px;
-  position: relative;
-}
-
-.tegi h3 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-
-.productImage {
-  width: 100%; /* Ширина изображения равна ширине карточки */
-  height: 284px; /* Фиксированная высота для изображений */
-  object-fit: cover; /* Чтобы изображение сохраняло пропорции и не обрезалось */
-}
-
-.price_container {
-  gap: 22px;
-  display: flex;
-}
-
-.old_price {
-  color: var(--txt-black, #424436);
-  font-family: Montserrat;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 110%;
-}
-
-.new_price {
-  margin-top: 17px;
-  color: var(--txt-grey, #8B8B8B);
-  font-family: Montserrat;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 130%; /* 26px */
-  text-decoration-line: strikethrough;
-}
-
-.icon_container {
-  position: absolute; /* Абсолютное позиционирование для контейнера иконок */
-  top: 10px; /* Расположение от верхнего края карточки */
-  right: 10px; /* Расположение от правого края карточки */
-  display: flex;
-  flex-direction: column;
-  gap: 5px; /* Расстояние между иконками */
-}
-
-.icon {
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  display: inline-block;
-  transition: transform 0.3s ease;  /* Курсор для интерактивных элементов */
-}
-
-.icon:hover {
-  transform: translateZ(10px) scale(1.1); /* Легкое движение вперед и увеличение */
-}
-
-.discount_info {
-  width: 55px;
-  height: 30px;
-  background-color: rgb(234, 118, 76);
-  color: var(--txt-white, #fff);
-  font-family: Montserrat;
-  font-size: 20px;
-  border-radius: 5px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%; /* 26px */
-  letter-spacing: 0.6px;
-  position: absolute; /* Абсолютное позиционирование для логотипа со скидкой */
-  top: 10px; /* Расположение от верхнего края карточки */
-  left: 10px; /* Расположение от левого края карточки */
-}
-.allProductsButton:hover {
-    background-color: #7f8b26; /* Более тёмный оттенок зелёного при наведении */
-    transform: translateY(-3px); /* Лёгкое перемещение вверх при наведении */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта объема */
+  &:hover {
+    background-color: #7f8b26;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
+}
 
 .allProductsButton_dark {
   background-color: #424436;
   color: gray;
 }
 
-.allProductsButton:hover {
-  color: #333;
+.Sales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  flex-wrap: wrap;
+  gap: 32px;
+
+  // карточки (примеры)
+  .ProductsCard {
+    flex: 0 1 316px;
+  }
+}
+
+// 🔁 Мобильная адаптация с горизонтальным скроллом
+@media (max-width: 768px) {
+  .Sales {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    display: flex;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+
+    .ProductsCard {
+      flex: 0 0 auto;
+      width: 280px;
+      scroll-snap-align: start;
+    }
+
+    // скрытие полосы прокрутки
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }

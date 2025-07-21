@@ -7,10 +7,10 @@
   border-radius: 6px;
   background: #92A134;
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.btn a {
-  padding: 16px 56px;
+  a {
+      display: inline-block;
+      padding: clamp(12px, 3vw, 16px) clamp(24px, 6vw, 56px);
+    }
 }
 
 .btn:hover {
@@ -20,8 +20,9 @@
 }
 
 .mainBanner {
+  margin: 0 auto;
   width: 100%;
-  max-width: 100%;
+  max-width: 1440px;
   padding: 0 30px;
   min-height: 594px;
   display: flex;

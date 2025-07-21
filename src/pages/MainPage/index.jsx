@@ -8,7 +8,7 @@ import s from "./index.module.scss";
 
 const MainPage = () => {
   return (
-    <div className={s.MainPage}>
+    <div className={s.mainpage}>
       <Banner />
       <Categories />
       <DiscountForm />
