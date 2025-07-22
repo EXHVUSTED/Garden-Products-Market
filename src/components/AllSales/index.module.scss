@@ -167,24 +167,24 @@
 
 /* --- Адаптив --- */
 
-@media (max-width: 1024px) {
-  .products h2 {
-    font-size: 48px;
-  }
+// @media (max-width: 1024px) {
+//   .products h2 {
+//     font-size: 48px;
+//   }
 
-  .productsItem {
-    max-width: 280px;
-    height: auto;
-  }
+//   .productsItem {
+//     max-width: 280px;
+//     height: auto;
+//   }
 
-  .productsItem img {
-    height: 240px;
-  }
+//   .productsItem img {
+//     height: 240px;
+//   }
 
-  .new_price {
-    font-size: 32px;
-  }
-}
+//   .new_price {
+//     font-size: 32px;
+//   }
+// }
 
 @media (max-width: 768px) {
   .products h2 {

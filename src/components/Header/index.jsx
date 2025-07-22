@@ -13,11 +13,9 @@ import { addProductToCartAction } from "../../store/reducers/cartReducer";
 import { ThemeContext } from "../../ThemeContext";
 
 function Header() {
-  useEffect(() => {
-  console.log('API URL:', apiUrl);
-  }, []);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const apiUrl = import.meta.env.VITE_API_URL
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   const productsState = useSelector((store) => store.products.data);
@@ -42,7 +40,6 @@ function Header() {
       setProductOfTheDay(savedProduct);
       setLoading(false);
     } else {
-      // fetch("http://localhost:3333/products/all")
       fetch(`${apiUrl}/products/all`)
         .then((response) => {
           if (!response.ok) throw new Error("Error fetching products");
@@ -100,55 +97,22 @@ function Header() {
         </button>
       </div>
 
-      <nav className="style-centr">
-        <div className={s["discount-banner"]}>
-          <Link onClick={handleDiscountClick}>1 day discount!</Link>
-        </div>
+      
 
-        {isModalOpen && productOfTheDay && (
-          <div className={`${s.modal} ${theme === "dark" ? s["modal_dark"] : ""}`}>
-            <div className={s.modal_content}>
-              <div className={s.modal_title}>
-                <p>50% discount on product of the day!</p>
-                <button onClick={closeDiscount}>X</button>
-              </div>
-              <div className={s.modal_product}>
-                <div className={s.modal_product_content}>
-                  <img
-                    // src={`http://localhost:3333${productOfTheDay.image}`}
-                    src={`${import.meta.env.VITE_API_URL}${productOfTheDay.image}`}
-                    alt={productOfTheDay.title}
-                  />
-                  <div className={s.modal_product_txt}>
-                    <div className={s.module_product_title}>
-                      <h2>{productOfTheDay.title}</h2>
-                    </div>
-                    <div className={s.modal_product_price}>
-                      <div className={s.modal_product_price_main}>
-                        <p>${productOfTheDay.discountedPrice}</p>
-                      </div>
-                      <div className={s.modal_product_discount}>
-                        <p>${productOfTheDay.price}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={s.modal_product_button_container}>
-                  <button onClick={handleAddToCart}>
-                    <p>Add to Cart</p>
-                  </button>
-                </div>
-              </div>
-            </div>
+      <div className={`${s.burger} ${theme === 'dark' ? s['burger-dark'] : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+        <nav className={`${s.navList} ${isMenuOpen ? s.open : ''}`}>
+          <div className={s.pages}>
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>Main Page</Link>
+            <Link to="/categories" onClick={() => setIsMenuOpen(false)}>Categories</Link>
+            <Link to="/products" onClick={() => setIsMenuOpen(false)}>All products</Link>
+            <Link to="/sales" onClick={() => setIsMenuOpen(false)}>All sales</Link>
           </div>
-        )}
-
-        <div className={s.navList}>
-          <Link to="/">Main Page</Link>
-          <Link to="/categories">Categories</Link>
-          <Link to="/products">All products</Link>
-          <Link to="/sales">All sales</Link>
-        </div>
+          <Link className={s.discount_banner} onClick={() => {handleDiscountClick(); setIsMenuOpen(false);}}>Product of the Day</Link>
       </nav>
 
       <div className={s.icons}>
@@ -161,6 +125,43 @@ function Header() {
           <span>{totalCount}</span>
         </Link>
       </div>
+
+      {isModalOpen && productOfTheDay && (
+        <div className={`${s.modal} ${theme === "dark" ? s["modal_dark"] : ""}`}>
+          <div className={s.modal_content}>
+            <div className={s.modal_title}>
+              <p>50% discount on product of the day!</p>
+              <button onClick={closeDiscount}>X</button>
+            </div>
+            <div className={s.modal_product}>
+              <div className={s.modal_product_content}>
+                <img
+                  src={`${import.meta.env.VITE_API_URL}${productOfTheDay.image}`}
+                  alt={productOfTheDay.title}
+                />
+                <div className={s.modal_product_txt}>
+                  <div className={s.module_product_title}>
+                    <h2>{productOfTheDay.title}</h2>
+                  </div>
+                  <div className={s.modal_product_price}>
+                    <div className={s.modal_product_price_main}>
+                      <p>${productOfTheDay.discountedPrice}</p>
+                    </div>
+                    <div className={s.modal_product_discount}>
+                      <p>${productOfTheDay.price}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={s.modal_product_button_container}>
+                <button onClick={handleAddToCart}>
+                  <p>Add to Cart</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
