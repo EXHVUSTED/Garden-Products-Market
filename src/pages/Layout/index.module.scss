@@ -2,58 +2,34 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  color: #000;
+  background: var(--bg-page);
+  color: var(--text-primary);
 }
 
-.theme-dark {
-  background-color: #1e1e1e;
-  color: #fff;
-}
-
+.theme-dark,
 .theme-light {
-  background-color: #ffffff;
-  color: #000;
+  background: var(--bg-page);
+  color: var(--text-primary);
 }
 
 .main {
   flex: 1;
-  display: flex;
-  justify-content: center;
+  width: min(100%, var(--page-max));
+  margin: 0 auto;
+  padding: 24px var(--container-padding) var(--section-gap);
   box-sizing: border-box;
-  padding: 20px 16px;
-
-  @media (max-width: 768px) {
-    padding: 16px 12px;
-  }
-
-  @media (max-width: 430px) {
-    padding: 12px 10px;
-  }
-
-  @media (max-width: 360px) {
-    padding: 10px 8px;
-  }
 }
 
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--page-max);
   margin: 0 auto;
+  padding: 0 var(--container-padding);
   box-sizing: border-box;
+}
 
-  // добавим адаптивность текста и внутренних отступов
-  padding: 0 20px;
-
-  @media (max-width: 768px) {
-    padding: 0 16px;
-  }
-
-  @media (max-width: 430px) {
-    padding: 0 12px;
-  }
-
-  @media (max-width: 360px) {
-    padding: 0 10px;
+@media (max-width: 768px) {
+  .main {
+    padding-top: 18px;
   }
 }

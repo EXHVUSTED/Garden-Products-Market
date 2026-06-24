@@ -1,53 +1,132 @@
+:root {
+  --page-max: 1440px;
+  --container-padding: clamp(16px, 4vw, 40px);
+  --section-gap: clamp(36px, 6vw, 70px);
+  --radius-small: 6px;
+  --radius-big: 12px;
+  --shadow-soft: 0 8px 24px rgba(66, 68, 54, 0.1);
+  --green: #92a134;
+  --green-hover: #a7b545;
+  --orange: #f26d22;
+  --white: #fffff1;
+  --light-grey: #f2f6d3;
+  --grey-divider: #ddd;
+  --txt-black: #424436;
+  --txt-grey: #8b8b8b;
+  --txt-white: #fff;
+  --bg-page: #fffff1;
+  --bg-surface: #ffffff;
+  --bg-soft: #f2f6d3;
+  --bg-header: #fffff1;
+  --border: #ddd;
+  --text-primary: #424436;
+  --text-secondary: #8b8b8b;
+}
+
+:root[data-theme="dark"] {
+  --white: #424436;
+  --light-grey: #383a2c;
+  --grey-divider: #6d705b;
+  --txt-black: #f7f8ef;
+  --txt-grey: #c7cab8;
+  --bg-page: #303226;
+  --bg-surface: #424436;
+  --bg-soft: #383a2c;
+  --bg-header: #424436;
+  --border: #6d705b;
+  --text-primary: #f7f8ef;
+  --text-secondary: #c7cab8;
+  color-scheme: dark;
+}
+
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 html,
-body {
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
   margin: 0;
   padding: 0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+body {
   width: 100%;
-  min-width: 320px;
   max-width: 100%;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
 
 .main_container {
   width: 100%;
-  max-width: 1440px;
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.page-shell {
+  width: min(100%, var(--page-max));
   margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  justify-content: center;
+  padding-inline: var(--container-padding);
+}
 
-  &.light-theme {
-    background-color: #ffffff;
-  }
+input,
+select {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
 
-  &.dark-theme {
-    background-color: #383a2c;
-  }
+input::placeholder {
+  color: var(--text-secondary);
+}
 
-  @media (max-width: 768px) {
-    max-width: 768px;
-    padding: 0 16px;
-  }
-
-  @media (max-width: 430px) {
-    max-width: 430px;
-    padding: 0 12px;
-  }
-
-  @media (max-width: 360px) {
-    padding: 0 10px;
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
   }
 }

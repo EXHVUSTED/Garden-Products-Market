@@ -8,10 +8,10 @@ import { ThemeContext } from "../../ThemeContext";
 const Layout = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <div className={`${s.theme} ${theme === "dark" ? s["theme-dark"] : ""}`}>
+    <div className={`${s.layout} ${theme === "dark" ? s["theme-dark"] : s["theme-light"]}`}>
       <Header />
 
-      <main>
+      <main className={s.main}>
         <Outlet />
       </main>
 
@@ -21,3 +21,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

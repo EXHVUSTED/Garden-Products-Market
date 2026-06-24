@@ -94,7 +94,7 @@ input {
 }
 
 .discountbutton > a {
-  color: black !important;
+  color: var(--text-primary) !important;
 }
 
 @media (max-width: 768px) {
@@ -107,3 +107,4 @@ input {
     width: 100%;
   }
 }
+

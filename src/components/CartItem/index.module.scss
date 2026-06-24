@@ -1,165 +1,150 @@
 .cartitem {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  width: 100%;
+  min-height: 180px;
   margin-bottom: 20px;
-  display: flex;
-  width: 780px;
-  height: 180px;
-  gap: 32px;
-  border-radius: var(--radius-big, 10px);
-  border: 1px solid var(--grey-divider, #ddd);
+  gap: 24px;
   overflow: hidden;
-  .cartimgcontainer {
+  border-radius: var(--radius-big);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.cartimgcontainer {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  background: var(--bg-soft);
+
+  img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-big, 1px);
-    border: 1px solid var(--grey-divider, #ddd);
-    width: 200px;
   }
 }
 
 .cartitem_dark {
-  background: #383a2c;
-  border: 1px solid var(--grey-divider, #888);
-  .hcart {
-    button {
-      color: grey;
-      background: none;
-    }
-    .hcartt {
-      color: #fff !important;
-    }
-  }
-  .pricecontainer {
-    .containerprice {
-      color: #fff !important;
-    }
-    .discount_pricecontainer {
-      color: #8b8b8b !important;
-    }
-  }
-  .pricecartcontainer {
-    .cartcontainercounter {
-      border-radius: var(--radius-small, 10px);
-      border: 1px solid var(--grey-divider, grey);
-      background: #383a2c;
-      button {
-        border: 1px solid var(--grey-divider, grey);
-        background: #383a2c;
-        color: grey !important;
-      }
-    }
-    .countercontainer {
-      p {
-        color: #fff !important;
-      }
-      background: #383a2c;
-    }
-  }
+  background: var(--bg-surface);
+  border-color: var(--border);
 }
 
 .cartcontentcontainer {
-  padding-top: 32px;
-  padding-right: 32px;
-  padding-bottom: 32px;
   display: grid;
-  width: 548px;
-  height: 180px;
-  justify-content: space-between;
+  min-width: 0;
+  gap: 28px;
+  padding: 28px 28px 28px 0;
 }
 
 .hcart {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: inline-flex;
-  width: 516px;
-  height: 26px;
+  display: flex;
+  min-width: 0;
   gap: 16px;
+  align-items: flex-start;
 }
+
 .hcartt {
-  width: 476px;
+  min-width: 0;
+  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-primary);
 }
+
 .hcart button {
-  font-weight: 800;
   margin-left: auto;
-  border: none;
-  outline: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 800;
 }
 
 .hcart p {
   font-weight: 500;
   font-size: 20px;
-  line-height: 26px;
-  
-
-}
-.button_close :hover{
-    background-color: #bdce43;
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
- 
+  line-height: 130%;
 }
 
 .pricecartcontainer {
-  width: 516px;
-  height: 58px;
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  align-items: center;
 }
 
 .cartcontainercounter {
   display: flex;
   width: 200px;
   height: 58px;
-  border-top: 1px;
-  border-bottom: 1px;
   justify-content: space-between;
-  border-radius: var(--radius-small, 10px);
-  border: 1px solid var(--grey-divider, #ddd);
+  overflow: hidden;
+  border-radius: var(--radius-small);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
 }
 
 .cartcontainercounter button {
   width: 58px;
   height: 58px;
-  border-radius: var(--radius-small, 10px);
-  border: 1px solid var(--grey-divider, #ddd);
+  border-radius: 0;
+  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
 }
 
 .countercontainer {
-  justify-content: center;
-  align-items: center;
   display: grid;
+  width: 84px;
+  place-items: center;
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 20px;
-  line-height: 26px;
-  width: 96px;
+  line-height: 130%;
 }
 
 .pricecontainer {
-  width: 284px;
-  height: 44px;
   display: flex;
-  gap: 16px;
-  p {
-    color: black;
-  }
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 16px;
 }
 
 .containerprice {
-  width: 130px;
-  height: 44px;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 44px;
-  color: #282828;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 40px);
+  line-height: 110%;
 }
 
 .discount_pricecontainer {
-  width: 51px;
-  height: 26px;
+  color: var(--text-secondary);
   font-weight: 500;
   font-size: 20px;
-  line-height: 26px;
-  color: #8b8b8b;
+  line-height: 130%;
+  text-decoration: line-through;
 }
 
+@media (max-width: 700px) {
+  .cartitem {
+    grid-template-columns: 1fr;
+  }
+
+  .cartimgcontainer {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+
+  .cartcontentcontainer {
+    padding: 0 20px 24px;
+  }
+
+  .cartcontainercounter {
+    width: 100%;
+  }
+
+  .pricecartcontainer {
+    align-items: stretch;
+  }
+}

@@ -1,94 +1,80 @@
 .sales_container {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 30px;
+  max-width: var(--page-max);
+  margin: 0 auto var(--section-gap);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 30px;
 }
 
 .sale_title {
-  color: var(--txt-black, #424436);
-  font-family: Montserrat;
-  font-size: 64px;
-  font-style: normal;
+  color: var(--text-primary);
+  font-size: clamp(36px, 6vw, 64px);
   font-weight: 700;
   line-height: 110%;
 }
 
 .line {
-  flex-grow: 1;
-  height: 2px;
-  background-color: #ccc;
-  margin: 0 20px;
+  flex: 1 1 120px;
+  height: 1px;
+  background: var(--border);
 }
 
 .allProductsButton {
+  display: inline-flex;
+  min-width: 100px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
-  width: 100px;
-  height: 40px;
-  text-decoration: none;
-  color: black;
-  margin: 8px 13px;
+  color: var(--text-secondary);
   text-align: center;
-  font-family: Montserrat;
   font-size: 15px;
   font-weight: 500;
-  border-radius: 5px;
-  border: 0.3px solid var(--grey-divider, rgb(214, 212, 212));
-  background-color: white;
-  transition: all 0.3s;
+  border-radius: var(--radius-small);
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #7f8b26;
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: var(--green);
+    color: var(--txt-white);
+    transform: translateY(-2px);
   }
 }
 
 .allProductsButton_dark {
-  background-color: #424436;
-  color: gray;
+  background: transparent;
+  color: var(--text-secondary);
 }
 
 .Sales {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
-
-  // карточки (примеры)
-  .ProductsCard {
-    flex: 0 1 316px;
-  }
 }
 
-// 🔁 Мобильная адаптация с горизонтальным скроллом
 @media (max-width: 768px) {
+  .header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .allProductsButton {
+    width: 100%;
+  }
+
   .Sales {
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-wrap: nowrap;
-    display: flex;
-    gap: 16px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px;
-
-    .ProductsCard {
-      flex: 0 0 auto;
-      width: 280px;
-      scroll-snap-align: start;
-    }
-
-    // скрытие полосы прокрутки
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
   }
 }

@@ -1,47 +1,76 @@
-.categories_page {
-  max-width: 1440px;
-}
 .breadcrumbs {
-    display: flex;
-    align-items: center;
-    margin-left: 40px;
-    padding-bottom: 40px;
-    padding-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 16px 0 36px;
+}
+
+.crumbBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 16px;
+  border-radius: var(--radius-small);
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+.crumbText,
+.crumbTextMain,
+.crumbTextBlack {
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+.crumbTextMain,
+.crumbTextBlack {
+  color: var(--text-primary);
+}
+
+.crumbTextMain-dark,
+.breadcrumbs_dark .crumbTextBlack {
+  color: var(--text-primary);
+}
+
+.line {
+  width: 16px;
+  height: 1px;
+  background: var(--border);
+}
+
+.container,
+.categories_page,
+.container_single_card {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.container_dark,
+.single_prdouct_page_dark,
+.favoritepage_dark {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+@media (max-width: 560px) {
+  .breadcrumbs {
+    gap: 8px;
+    padding-bottom: 24px;
   }
-  
-  .crumbBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 8px;
-    // background-color: #fffff1;
-    border: 1px solid #ddd;
-  }
-  
-  .crumbText {
-    color: #8B8B8B;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 126%;
-  }
-  
-  .crumbTextMain {
-    color: black;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 126%;
-  }
-  .crumbTextMain-dark {
-    color: #ffff;
-  }
-  
+
   .line {
-    width: 16px;
-    height: 1px;
-    background-color: #ddd;
+    display: none;
   }
+
+  .crumbBox {
+    flex: 1 1 auto;
+  }
+}

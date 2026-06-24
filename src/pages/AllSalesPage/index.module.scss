@@ -1,53 +1,76 @@
 .breadcrumbs {
   display: flex;
   align-items: center;
-  margin-left: 40px;
-  padding-bottom: 40px;
-  padding-top: 40px;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 16px 0 36px;
 }
 
 .crumbBox {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 38px;
   padding: 8px 16px;
-  border-radius: 8px;
-  // background-color: #fffff1;
-  border: 1px solid #ddd;
+  border-radius: var(--radius-small);
+  border: 1px solid var(--border);
+  background: transparent;
 }
 
-.crumbText {
-  color: #8b8b8b;
+.crumbText,
+.crumbTextMain,
+.crumbTextBlack {
+  color: var(--text-secondary);
   text-align: center;
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 126%;
 }
 
-.crumbTextMain {
-  color: black;
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 126%;
+.crumbTextMain,
+.crumbTextBlack {
+  color: var(--text-primary);
 }
 
-.crumbTextMain-dark {
-  color: #fff;
+.crumbTextMain-dark,
+.breadcrumbs_dark .crumbTextBlack {
+  color: var(--text-primary);
 }
 
 .line {
   width: 16px;
   height: 1px;
-  background-color: #ddd;
+  background: var(--border);
 }
 
-.container {
-  background: var(--white, #fffff1);
+.container,
+.categories_page,
+.container_single_card {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  background: var(--bg-page);
+  color: var(--text-primary);
 }
 
-.container_dark {
-  background: var(--white, #424436);
+.container_dark,
+.single_prdouct_page_dark,
+.favoritepage_dark {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+@media (max-width: 560px) {
+  .breadcrumbs {
+    gap: 8px;
+    padding-bottom: 24px;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .crumbBox {
+    flex: 1 1 auto;
+  }
 }

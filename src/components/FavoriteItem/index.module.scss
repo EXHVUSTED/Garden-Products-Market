@@ -1,157 +1,127 @@
 .product_card_container {
   display: flex;
+  width: 100%;
+  justify-content: center;
 }
+
 .sales_card {
+  position: relative;
   overflow: hidden;
-  width: 316px;
-  height: 422px;
-  // padding-bottom: 30px;
+  width: 100%;
+  max-width: 316px;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  // align-items: flex-start;
-  gap: 28px;
-  position: relative;
-  border-radius: var(--radius-big, 12px);
-  border: 1px solid var(--grey-divider, #DDD);
-  background: #FFF;
+  gap: 18px;
+  border-radius: var(--radius-big);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
 }
 
 .image_container {
   overflow: hidden;
-  object-fit: cover;
-  // position: relative;
-  width: 316px; /* Ширина 100% для корректного отображения */
-  height: 284px; /* Высота автоматически подстраивается */
+  width: 100%;
+  aspect-ratio: 316 / 284;
+  background: var(--bg-soft);
 }
 
 .sale_image {
-  align-items: center;
-  // position: relative;
-  max-width: 316px; /* Полная ширина изображения */
-  // max-height: 284px;
-  // height: auto; /* Автоматическая высота для сохранения пропорций */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .discount_info {
-  width: 50px;
-  height: 25px;
-  background: #F26D22;
-  color: var(--txt-white, #fff);
-  font-family: Montserrat;
-  font-size: 20px;
-  border-radius: 5px;
-  font-style: normal;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  min-width: 58px;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-small);
+  background: var(--orange);
+  color: var(--txt-white);
+  font-size: 18px;
   font-weight: 600;
-  line-height: 130%; /* 26px */
-  letter-spacing: 0.6px;
-  position: absolute; /* Абсолютное позиционирование для логотипа со скидкой */
-  top: 10px; /* Расположение от верхнего края карточки */
-  left: 10px; /* Расположение от левого края карточки */
+  line-height: 130%;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .icon_container {
-  position: absolute; /* Абсолютное позиционирование для контейнера иконок */
-  top: 10px; /* Расположение от верхнего края карточки */
-  right: 10px; /* Расположение от правого края карточки */
+  position: absolute;
+  top: 12px;
+  right: 12px;
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Расстояние между иконками */
+  gap: 8px;
 }
 
 .icon {
-  // position: absolute;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
-  display: inline-block;
-  transition: transform 0.3s ease;  /* Курсор для интерактивных элементов */
-}
+  transition: transform 0.2s ease;
 
-.icon:hover {
-  transform: translateZ(10px) scale(1.1); /* Легкое движение вперед и увеличение */
+  &:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
 }
 
 .description {
-  // width: 252px;
-  position: relative;
-  height: 26px;
-  margin: 10px 0px;
-  padding-left: 30px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: 0;
+  padding: 0 24px;
 }
 
-.descriptionp {
-  display: flex;
-  hyphens: auto;
-  width: 252px;
-  height: 26px;
-  color: var(--txt-black, #424436);
-  font-weight: 500;
-  line-height: 130%; /* 26px */
+.descriptionp,
+.descriptionp p {
+  min-width: 0;
+  color: var(--text-primary);
   font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.descriptionp p{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis
 }
 
 .price_box {
-  gap: 20px;
-  margin-bottom: 0px;
-  width: 316px;
-  height: 118px;
+  margin-top: auto;
+  padding: 0 24px 24px;
 }
 
 .price_container {
-  display: flex; /* Используем флекс-контейнер */
-  align-items: center; /* Выравниваем по центру вертикально */
-  width: 252px;
-  height: 44px;
-  padding-left: 30px;
-  gap: 20px; /* Расстояние между ценами */
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 20px;
 }
 
 .old_price {
-  color: var(--txt-grey, #8B8B8B);
-  font-family: Montserrat;
+  color: var(--text-secondary);
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
   line-height: 110%;
-  text-decoration: line-through; /* Перечеркнутая старая цена */
-  flex-shrink: 0; /* Запрещаем сжимать элемент */
+  text-decoration: line-through;
 }
 
 .new_price {
-  color: var(--txt-black, #424436);
-  font-family: Montserrat;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 600;
+  color: var(--text-primary);
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 110%;
 }
 
-.product_card_container_dark {
+.product_card_container_dark .sales_card {
+  background: var(--bg-surface) !important;
+  border-color: var(--border);
+}
+
+@media (max-width: 520px) {
   .sales_card {
-    border: 1px solid var(--grey-divider, grey);
-    background-color: #383A2C!important;
-    .new_price {
-      color: #fff!important;
-    }
-    .old_price {
-      color: grey!important;
-    }
-    .descriptionp {
-      color: #ffff!important;
-    }
+    max-width: none;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import NotFoundPage from "./pages/NotFoundPage";
 import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
@@ -15,6 +15,10 @@ import { ThemeContext, ThemeProvider } from "./ThemeContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   return (
     <div
@@ -46,3 +50,4 @@ export default function Root() {
     </ThemeProvider>
   );
 }
+

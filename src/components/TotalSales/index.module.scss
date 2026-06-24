@@ -1,54 +1,49 @@
 .sales_container {
-    max-width: 1360px;
-    margin-left: 40px;
-    margin-bottom: 50px;
-    background: var(--white, #fffff1);
-  
-    
-    
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto 50px;
+  background: var(--bg-page);
 }
 
 .sale {
-  color: var(--txt-black, #424436);
-  font-family: Montserrat;
-  font-size: 64px;
-  font-style: normal;
+  color: var(--text-primary);
+  font-size: clamp(36px, 6vw, 64px);
   font-weight: 700;
-  line-height: 110%; /* 70.4px */
+  line-height: 110%;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 20px;
 
   .line {
-    flex-grow: 1;
-    height: 2px;
-    width: 1300px;
+    flex: 1 1 120px;
     height: 1px;
-    background: #ddd;
-    margin-left: 20px;
+    background: var(--border);
   }
 
   .allSalesButton {
     display: flex;
     align-items: center;
-    width: 150px;
-    height: 20px;
-    color: var(--txt-grey, #8b8b8b);
+    justify-content: center;
+    min-width: 150px;
+    min-height: 40px;
+    padding: 8px 16px;
+    color: var(--text-secondary);
     text-align: center;
-    font-family: Montserrat;
-    font-size: 12px;
-    font-style: normal;
+    font-size: 14px;
     font-weight: 500;
     line-height: 126%;
-    border-radius: var(--radius-small, 6px);
-    border: 1px solid var(--grey-divider, #ddd);
+    border-radius: var(--radius-small);
+    border: 1px solid var(--border);
+    background: transparent;
+
     &:hover {
-      background-color: #e0e0e0;
+      background: var(--bg-soft);
+      color: var(--text-primary);
     }
   }
 }
-
